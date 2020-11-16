@@ -16,40 +16,68 @@ $().ready(function () {
         console.log(item);
     });
 
-    // map()
-    var numbers2 = numbers.map(function (item) {
-        console.log(item * 2);
-    });
+    // map(): tạo 1 mảng mới với kết quả của việc gọi một hàm cho mọi phần tử của mảng, không thay đổi mảng ban đầu
+    // map(): không thực thi hàm cho các phần tử mảng không có giá trị
+    var numbers2 = numbers.map(Math.sqrt);
+    console.log(numbers2);
 
-    // Array.filter(): trả về mảng mới tm điều kiện
+
+    var persons = [
+        { firstname: "Malcom", lastname: "Reynolds" },
+        { firstname: "Kaylee", lastname: "Frye" },
+        { firstname: "Jayne", lastname: "Cobb" }
+    ];
+    function getFullName(item) {
+        var fullname = [item.firstname, item.lastname].join(" ");
+        return fullname;
+    }
+    console.log(persons.map(getFullName));
+
+    // Array.filter(): trả về mảng mới với các ptu tm điều kiện
     console.log(numbers.filter(function (value) {
         return value > 9;
     }));
 
-    // Array.reduce(): trừ các số trong mảng từ bên trái
-    console.log(numbers.reduce(function (total, value) {
-        return total + value;
-    }))
+    // Array.reduce(): thực thi 1 callback function được cung cấp cho mỗi giá trị của mảng từ trái sang phải, ko đổi giá trị mảng bd
+    // Array.reduce(): bỏ qua những ptu không có giá trị
+    // Array.reduce(callback,intialValue)
+    // callback function nhận vào 4 tham số: accumulator, currentValue, currentIndex, arr
+    // nếu initial value không được cung cấp: reduce sẽ thực thi callback bắt đầu từ index = 1: accumulator = arr[0], currentValue = arr[1]
+    // nếu initial value được cung cấp: reduce sẽ thực thi callback từ index = 0: accumulator = initialValue, currentValue = arr[0]
+    // giá trị của hàm được lưu trữ trong accumulator
 
-    // Array.reduceRight(): trừ các số trong mảng bắt đầu từ bên phải
-    console.log(numbers.reduceRight(function (total, value) {
-        return total + value;
-    }))
+    // không có initalValue
+    var reduce = numbers.reduce(function (accumulator, currentValue) {
+        return accumulator += currentValue;
+    });
+    console.log(reduce);
+    // có initialValue
+    reduce = numbers.reduce(function (accumulator, currentValue) {
+        return accumulator += currentValue;
+    }, 100);
+    console.log(reduce);
 
-    // Array.every(): kiểm tra tất cả các ptu thoả mãn với điều kiện: true
+    // Array.reduceRight(): reduce bắt đầu từ bên phải
+    reduce = numbers.reduce(function (accumulator, currentValue) {
+        return accumulator += currentValue;
+    }, 1000);
+    console.log(reduce);
+
+    // Array.every(): kiểm tra tất cả các ptu thoả mãn với điều kiện
+    // Kết quả trả về true/false nếu tm điều kiện khác filter trả về mảng mới gồm các ptu tm điều kiện
     console.log(numbers.every(function (value) {
         return value > 9;
-    }))
+    }));
 
     // Array.some(): kiểm tra nếu bất kỳ ptu nào trong mảng thoả mãn: true
     console.log(numbers.some(function (value) {
         return value > 9;
-    }))
+    }));
 
     // indexOf: tìm chỉ số đầu
     var fruits = ["Apple", "Orange", "Apple", "Mango"];
     var a = fruits.indexOf("Apple");
-    console.log(a)
+    console.log(a);
 
     // lastIndexOf: tìm chỉ số cuối
     a = fruits.lastIndexOf("Apple");
