@@ -157,6 +157,7 @@ $(document).ready(function () {
     $('#f5').on('click', function () {
         $('#id').val('');
         $('#name').val('');
+        $('#table_list tbody').html(body);
     });
 
     $('#f10').on('click', function () {

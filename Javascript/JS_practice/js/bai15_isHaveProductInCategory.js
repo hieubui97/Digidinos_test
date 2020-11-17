@@ -12,10 +12,9 @@ function isHaveProductInCategory(listProduct, categoryId) {
 
 const isHaveProductInCategory_ES6 = (listProduct, categoryId) => {
     try {
-        var result = listProduct.some((item) => {
-            return item.categoryId == categoryId;
-        });
-        return result;
+        let result = listProduct.find(item => item.categoryId == categoryId);
+        if(result) return true;
+        return false;
     } catch (err) {
         alert(err.message);
     }

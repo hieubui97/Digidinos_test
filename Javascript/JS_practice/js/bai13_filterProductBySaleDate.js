@@ -1,10 +1,10 @@
 function filterProductBySaleDate(listProduct) {
     try {
         var date = new Date().toLocaleDateString();
-        let pr = listProduct.filter(function (item) {
+        var result = listProduct.filter(function (item) {
             return item.saleDate >= date && item.isDelete == false;
         });
-        return pr;
+        return result;
     }
     catch (err) {
         alert(err.message);
@@ -13,11 +13,14 @@ function filterProductBySaleDate(listProduct) {
 
 const filterProductBySaleDate_ES6 = (listProduct) => {
     try {
-        var date = new Date().toLocaleDateString();
-        let pr = listProduct.filter(item => {
-            return item.saleDate >= date && item.isDelete == false;
+        let result = [];
+        let date = new Date().toLocaleDateString();
+        listProduct.forEach(item => {
+            if (item.saleDate>=date && item.isDelete ==false){
+                result.push(item);
+            }
         });
-        return pr;
+        return result;
     }
     catch (err) {
         alert(err.message);

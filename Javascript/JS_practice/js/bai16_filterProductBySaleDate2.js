@@ -1,11 +1,11 @@
 function filterProductBySaleDate2(listProduct) {
     try {
-        let result = [];
-        let date = new Date();
+        var result = [];
+        var date = new Date();
 
         listProduct.forEach(function (item) {
-            if (item.quality > 0 && item.saleDate >= date.toLocaleDateString()) {
-                let pr = [item.id, item.name];
+            if (item.quality > 15 && item.saleDate >= date.toLocaleDateString()) {
+                var pr = [item.id, item.name];
                 result.push(pr);
             }
         });
@@ -18,15 +18,9 @@ function filterProductBySaleDate2(listProduct) {
 
 const filterProductBySaleDate2_ES6 = (listProduct) => {
     try {
-        let result = [];
         let date = new Date();
-        
-        listProduct.forEach((item) => {
-            if (item.quality > 0 && item.saleDate >= date.toLocaleDateString()) {
-                let pr = [item.id, item.name ];
-                result.push(pr);
-            }
-        });
+        let filterList = listProduct.filter(item => item.quality > 15 && item.saleDate >= date.toLocaleDateString());
+        result = filterList.map(item=>[item.id, item.name]);
         return result;
     } catch (err) {
         alert(err.message);

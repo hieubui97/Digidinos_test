@@ -1,6 +1,6 @@
-function filterProductById(id, list) {
+function filterProductById(list, id) {
     try {
-        let pr = list.filter(function (item) {
+        var pr = list.filter(function (item) {
             return item.id == id;
         });
         return pr[0].name;
@@ -10,12 +10,10 @@ function filterProductById(id, list) {
 }
 
 // arrow function ES6
-const filterProductById_ES6 = (id, list) => {
+const filterProductById_ES6 = (list, id) => {
     try {
-        let pr = list.filter((item) => {
-            return item.id == id;
-        });
-        return pr[0].name;
+        let pr = list.find(item => item.id == id);
+        return pr.name;
     } catch (err) {
         alert(err.message);
     }
