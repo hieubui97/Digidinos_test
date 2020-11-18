@@ -1,0 +1,42 @@
+* {
+    font-size: 12px;
+}
+
+.panel {
+    padding: 20px;
+}
+
+.row .btn {
+    margin-left: 10px;
+}
+
+#nav {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 0;
+}
+
+header,
+header button {
+    background-color: rgb(80, 63, 80);
+}
+
+header input {
+    background-color: rgb(126, 109, 126);
+}
+
+header button,
+header input::placeholder {
+    color: rgb(223, 206, 206);
+}
+
+header span,
+header input,
+header button {
+    font-size: 16px;
+}
+
+i {
+    width: 30px;
+}

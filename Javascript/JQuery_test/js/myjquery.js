@@ -1,11 +1,10 @@
 function createSelectPositons(row) {
     var positions = JSON.parse(dataJson).positions;
     var result = '<select data-id="' + row["id"] + '" id="position_' + row["id"] + '" class="form-control form-control-sm">';
-    positions.forEach(function (item) {
+    positions.forEach(function(item) {
         if (row["position"] == item.id) {
             result += '<option selected value="' + row["position"] + '">' + item.name + '</option>'
-        }
-        else {
+        } else {
             result += '<option value="' + item.id + '">' + item.name + '</option>'
         }
     });
@@ -17,11 +16,10 @@ function createSelectPositons(row) {
 function createSelectOffices(row) {
     var offices = JSON.parse(dataJson).offices;
     var result = '<select data-id="' + row["id"] + '" id="office_' + row["id"] + '" class="form-control form-control-sm">';
-    offices.forEach(function (item) {
+    offices.forEach(function(item) {
         if (row["office"] == item.id) {
             result += '<option selected value="' + row["office"] + '">' + item.name + '</option>'
-        }
-        else {
+        } else {
             result += '<option value="' + item.id + '">' + item.name + '</option>'
 
         }
@@ -32,65 +30,61 @@ function createSelectOffices(row) {
 }
 
 function loadTable() {
-    $('#table_list').DataTable(
-        {
-            data: JSON.parse(dataJson).users,
-            paging: false,
-            columns: [
-                {
-                    data: function (row) {
-                        return '<span data-id="' + row["id"] + '" id="id_' + row["id"] + '">' + row["id"] + '</span>';
-                    }
-                },
-                {
-                    data: function (row) {
-                        return '<span data-id="' + row["id"] + '" id="name_' + row["id"] + '">' + row["name"] + '</span>';
-                    }
-                },
-                {
-                    data: function (row) {
-                        var result = createSelectPositons(row);
-                        return result;
-                    }
-                },
-                {
-                    data: function (row) {
-                        return '<input type="number" data-id="' + row["id"] + '" id="salary_' + row["id"] + '" name="salary" class="form-control form-control-sm" value="' + row["salary"] + '"/>';
-                    }
-                },
-                {
-                    data: function (row) {
-                        return '<input type="date" data-id="' + row["id"] + '" id="date_' + row["id"] + '" class="form-control form-control-sm" value="' + row["start_date"] + '"/>';
-                    }
-                },
-                {
-                    data: function (row) {
-                        var result = createSelectOffices(row);
-                        return result;
-                    }
-                },
-                {
-                    data: function (row) {
-                        return '<input type="number" data-id="' + row["id"] + '" id="extn_' + row["id"] + '" class="form-control form-control-sm" value="' + row["extn"] + '"/>';
-                    }
-                },
-                { data: "delete" }
-            ],
-            columnDefs: [
-                {
-                    targets: -1,
-                    data: null,
-                    defaultContent: '<button type="button" class="btn btn-danger">Delete</button>'
+    $('#table_list').DataTable({
+        data: JSON.parse(dataJson).users,
+        paging: false,
+        searching: false,
+        columns: [{
+                data: function(row) {
+                    return '<span data-id="' + row["id"] + '" id="id_' + row["id"] + '">' + row["id"] + '</span>';
                 }
-            ]
-        }
-    );
+            },
+            {
+                data: function(row) {
+                    return '<span data-id="' + row["id"] + '" id="name_' + row["id"] + '">' + row["name"] + '</span>';
+                }
+            },
+            {
+                data: function(row) {
+                    var result = createSelectPositons(row);
+                    return result;
+                }
+            },
+            {
+                data: function(row) {
+                    return '<input type="number" data-id="' + row["id"] + '" id="salary_' + row["id"] + '" name="salary" class="form-control form-control-sm" value="' + row["salary"] + '"/>';
+                }
+            },
+            {
+                data: function(row) {
+                    return '<input type="date" data-id="' + row["id"] + '" id="date_' + row["id"] + '" class="form-control form-control-sm" value="' + row["start_date"] + '"/>';
+                }
+            },
+            {
+                data: function(row) {
+                    var result = createSelectOffices(row);
+                    return result;
+                }
+            },
+            {
+                data: function(row) {
+                    return '<input type="number" data-id="' + row["id"] + '" id="extn_' + row["id"] + '" class="form-control form-control-sm" value="' + row["extn"] + '"/>';
+                }
+            },
+            { data: "delete" }
+        ],
+        columnDefs: [{
+            targets: -1,
+            data: null,
+            defaultContent: '<button type="button" class="btn btn-danger">Delete</button>'
+        }]
+    });
 }
 
-$(document).ready(function () {
+$(document).ready(function() {
     var table = loadTable();
 
-    $('#table_list tbody').on('click', 'tr', function () {
+    $('#table_list tbody').on('click', 'tr', function() {
         var name = $(this).find('td:eq(1)').text(); //var name = $(this).find('td:nth-child(2)').text();
         var position = $(this).find('td:nth-child(3) option:selected').text();
         var salary = $(this).find('td:nth-child(4)').find('input').val();
@@ -134,7 +128,7 @@ $(document).ready(function () {
     //});
 
     var body = $('#table_list tbody').html();
-    $('#f3').on('click', function () {
+    $('#f3').on('click', function() {
         $('#table_list tbody').html(body);
 
         var id = $('#id').val();
@@ -143,7 +137,7 @@ $(document).ready(function () {
         //table.columns(0).search(id).draw();
         //table.columns(1).search(name).draw();
         var content = "";
-        $('#table_list tbody tr').each(function () {
+        $('#table_list tbody tr').each(function() {
             var tr_id = $(this).find('td:nth-child(1)').text();
             var tr_name = $(this).find('td:nth-child(2)').text();
 
@@ -154,15 +148,15 @@ $(document).ready(function () {
         });
     });
 
-    $('#f5').on('click', function () {
+    $('#f5').on('click', function() {
         $('#id').val('');
         $('#name').val('');
         $('#table_list tbody').html(body);
     });
 
-    $('#f10').on('click', function () {
+    $('#f10').on('click', function() {
         var data = new Array();
-        $('#table_list tbody tr').each(function () {
+        $('#table_list tbody tr').each(function() {
             var item = {
                 id: $(this).find('td:nth-child(1)').text(),
                 name: $(this).find('td:nth-child(2)').text(),
