@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "List";
+    var data = ViewBag.Data;
+}
+
+<div class="container">
+    <div class="row pt-4">
+        @*<div class="col-md-1"></div>*@
+        <div class="col-md-3">
+            <img src="~/Content/IMG/logo_02.png" class="w-25" />
+            <div class="list-group">
+                <a href="#" class="list-group-item  list-group-item-action list-group-item-light">List</a>
+                <a href="#" class="list-group-item  list-group-item-action list-group-item-light">New</a>
+                <a href="#" class="list-group-item  list-group-item-action list-group-item-light">Search</a>
+                <a href="#" class="list-group-item  list-group-item-action list-group-item-light">Edit</a>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <h3>Blog Management</h3>
+            <h4>Lists</h4>
+            <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                <table id="table" class="table table-bordered table-hover ">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tin</th>
+                            <th>Loại</th>
+                            <th>Trạng thái</th>
+                            <th>Vị trí</th>
+                            <th>Ngày pubblic</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<script>
+    $().ready(function () {
+        $('#table').DataTable({
+            ajax: '/Blog/List',
+            paging: false,
+            searching: false
+        });
+    });
+</script>
