@@ -1,7 +1,7 @@
 ﻿@model List<JS_basic4.Models.Articles>
 
 @{
-    ViewBag.Title = "List";
+    ViewBag.Title = "Search";
 }
 
 <div class="container">
@@ -12,13 +12,22 @@
             <div class="list-group">
                 <a href="/Blog/List" class="list-group-item  list-group-item-action list-group-item-light">List</a>
                 <a href="/Blog/New" class="list-group-item  list-group-item-action list-group-item-light">New</a>
-                <a href="/Blog/Search" class="list-group-item  list-group-item-action list-group-item-light">Search</a>
+                <a href="/Blog/Search" class="list-group-item  list-group-item-action list-group-item-dark">Search</a>
                 <a href="#" class="list-group-item  list-group-item-action list-group-item-light">Edit</a>
             </div>
         </div>
         <div class="col-md-9">
             <h3>Blog Management</h3>
-            <h4>Lists blog</h4>
+            <h4>Search blog</h4>
+            <form method="post" action="/Blog/Search">
+                <div class="my-4">
+                    <label>Tiêu đề</label>
+                    <input class="form-control form-control-sm d-inline w-25 mx-3" name="searchString" value="@ViewBag.searchString"/>
+                    <button class="btn btn-sm btn-success">Search</button>
+                </div>
+
+            </form>
+
             <div class="table-wrapper-scroll-y my-custom-scrollbar">
                 <table id="table" class="table table-bordered table-hover ">
                     <thead>
@@ -34,7 +43,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach(var item in Model)
+                        @foreach (var item in Model)
                         {
                             <tr>
                                 <td>@item.Id</td>
@@ -44,7 +53,7 @@
                                 <td>@item.Position</td>
                                 <td>@item.DatePublic.ToShortDateString()</td>
                                 <td><a href="/Blog/Edit/@item.Id" class="btn btn-outline-info">Edit</a></td>
-                                <td><a href="/Blog/Delete/@item.Id" class="btn btn-outline-danger" onclick="return confirm('Are sure wants to delete?');">Delete</a></td>
+                                <td><a href="/Blog/Delete/@item.Id" class="btn btn-outline-danger">Delete</a></td>
                             </tr>
                         }
                     </tbody>
@@ -52,5 +61,5 @@
             </div>
         </div>
     </div>
-    
+
 </div>
