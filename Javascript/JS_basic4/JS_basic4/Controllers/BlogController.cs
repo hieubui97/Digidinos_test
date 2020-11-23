@@ -40,10 +40,13 @@ namespace JS_basic4.Controllers
                 }
                 return RedirectToAction("List");
             }
-
-            ViewBag.Category = db.GetCategory();
-            ViewBag.Positions = db.GetPosition();
-            return View(article);
+            else
+            {
+                ModelState.AddModelError("", "Error in saving data");
+                ViewBag.Category = db.GetCategory();
+                ViewBag.Positions = db.GetPosition();
+                return View(article);
+            }
         }
 
         public ActionResult Edit(int id)
@@ -71,11 +74,14 @@ namespace JS_basic4.Controllers
                 }
                 return RedirectToAction("List");
             }
-
-            ViewBag.Category = db.GetCategory();
-            ViewBag.Positions = db.GetPosition();
-            ViewBag.ArticlePositions = db.GetArticlePosition(article.Id);
-            return View(article);
+            else
+            {
+                ModelState.AddModelError("", "Error in saving data");
+                ViewBag.Category = db.GetCategory();
+                ViewBag.Positions = db.GetPosition();
+                ViewBag.ArticlePositions = db.GetArticlePosition(article.Id);
+                return View(article);
+            }
         }
 
         //[HttpPost]

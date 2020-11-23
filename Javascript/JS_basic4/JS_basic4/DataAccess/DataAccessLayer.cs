@@ -18,7 +18,7 @@ namespace JS_basic4.DataAccess
         public List<Articles> ListArticle()
         {
             DataSet dataSet = null;
-            List<Articles> articlesList = null;
+            List<Articles> articleList = null;
             try
             {
                 conn = new SqlConnection(ConfigurationManager.ConnectionStrings["mycon"].ToString());
@@ -30,32 +30,32 @@ namespace JS_basic4.DataAccess
                 adapter.SelectCommand = cmd;
                 dataSet = new DataSet();
                 adapter.Fill(dataSet);
-                articlesList = new List<Articles>();
-
-                for (int i = 0; i < dataSet.Tables[0].Rows.Count; i++)
+                articleList = new List<Articles>();
+                var table = dataSet.Tables[0];  
+                for (int i = 0; i < table.Rows.Count; i++)
                 {
                     Articles articles = new Articles();
-                    articles.Id = Convert.ToInt32(dataSet.Tables[0].Rows[i]["Id"].ToString());
-                    articles.Title = dataSet.Tables[0].Rows[i]["Title"].ToString();
-                    articles.Des = dataSet.Tables[0].Rows[i]["Des"].ToString();
-                    articles.Detail = dataSet.Tables[0].Rows[i]["Detail"].ToString();
-                    articles.Category = dataSet.Tables[0].Rows[i]["Category"].ToString();
-                    var date = dataSet.Tables[0].Rows[i]["DatePublic"].ToString();
+                    articles.Id = Convert.ToInt32(table.Rows[i]["Id"].ToString());
+                    articles.Title = table.Rows[i]["Title"].ToString();
+                    articles.Des = table.Rows[i]["Des"].ToString();
+                    articles.Detail = table.Rows[i]["Detail"].ToString();
+                    articles.Category = table.Rows[i]["Category"].ToString();
+                    var date = table.Rows[i]["DatePublic"].ToString();
                     if (!string.IsNullOrEmpty(date))
                     {
                         articles.DatePublic = Convert.ToDateTime(date);
                     }
-                    articles.IsPublic = dataSet.Tables[0].Rows[i]["IsPublic"].ToString();
-                    articles.Position = dataSet.Tables[0].Rows[i]["Position"].ToString();
-                    articles.Thumbs = dataSet.Tables[0].Rows[i]["Thumbs"].ToString();
+                    articles.IsPublic = table.Rows[i]["IsPublic"].ToString();
+                    articles.Position = table.Rows[i]["Position"].ToString();
+                    articles.Thumbs = table.Rows[i]["Thumbs"].ToString();
 
-                    articlesList.Add(articles);
+                    articleList.Add(articles);
                 }
-                return articlesList;
+                return articleList;
             }
-            catch
+            catch(Exception e)
             {
-                return articlesList;
+                return articleList;
             }
             finally
             {
@@ -66,7 +66,7 @@ namespace JS_basic4.DataAccess
         public List<Position> GetPosition()
         {
             DataSet dataSet = null;
-            List<Position> positions = null;
+            List<Position> positionList = null;
             try
             {
                 conn = new SqlConnection(ConfigurationManager.ConnectionStrings["mycon"].ToString());
@@ -78,21 +78,21 @@ namespace JS_basic4.DataAccess
                 adapter.SelectCommand = cmd;
                 dataSet = new DataSet();
                 adapter.Fill(dataSet);
-                positions = new List<Position>();
-
-                for (int i = 0; i < dataSet.Tables[0].Rows.Count; i++)
+                positionList = new List<Position>();
+                var table = dataSet.Tables[0];
+                for (int i = 0; i < table.Rows.Count; i++)
                 {
                     Position position = new Position();
-                    position.Id = Convert.ToInt32(dataSet.Tables[0].Rows[i]["Id"].ToString());
-                    position.Name = dataSet.Tables[0].Rows[i]["Name"].ToString();
+                    position.Id = Convert.ToInt32(table.Rows[i]["Id"].ToString());
+                    position.Name = table.Rows[i]["Name"].ToString();
 
-                    positions.Add(position);
+                    positionList.Add(position);
                 }
-                return positions;
+                return positionList;
             }
             catch
             {
-                return positions;
+                return positionList;
             }
             finally
             {
@@ -103,7 +103,7 @@ namespace JS_basic4.DataAccess
         public List<Category> GetCategory()
         {
             DataSet dataSet = null;
-            List<Category> categories = null;
+            List<Category> categoryList = null;
             try
             {
                 conn = new SqlConnection(ConfigurationManager.ConnectionStrings["mycon"].ToString());
@@ -115,21 +115,21 @@ namespace JS_basic4.DataAccess
                 adapter.SelectCommand = cmd;
                 dataSet = new DataSet();
                 adapter.Fill(dataSet);
-                categories = new List<Category>();
-
-                for (int i = 0; i < dataSet.Tables[0].Rows.Count; i++)
+                categoryList = new List<Category>();
+                var table = dataSet.Tables[0];
+                for (int i = 0; i < table.Rows.Count; i++)
                 {
                     Category category = new Category();
-                    category.Id = Convert.ToInt32(dataSet.Tables[0].Rows[i]["Id"].ToString());
-                    category.Name = dataSet.Tables[0].Rows[i]["Name"].ToString();
+                    category.Id = Convert.ToInt32(table.Rows[i]["Id"].ToString());
+                    category.Name = table.Rows[i]["Name"].ToString();
 
-                    categories.Add(category);
+                    categoryList.Add(category);
                 }
-                return categories;
+                return categoryList;
             }
             catch
             {
-                return categories;
+                return categoryList;
             }
             finally
             {
@@ -228,20 +228,20 @@ namespace JS_basic4.DataAccess
                 adapter.SelectCommand = cmd;
                 dataSet = new DataSet();
                 adapter.Fill(dataSet);
-
-                article.Id = Convert.ToInt32(dataSet.Tables[0].Rows[0]["Id"].ToString());
-                article.Title = dataSet.Tables[0].Rows[0]["Title"].ToString();
-                article.Des = dataSet.Tables[0].Rows[0]["Des"].ToString();
-                article.Detail = dataSet.Tables[0].Rows[0]["Detail"].ToString();
-                article.CategoryId = Convert.ToInt32(dataSet.Tables[0].Rows[0]["CategoryId"].ToString());
-                var date = dataSet.Tables[0].Rows[0]["DatePublic"].ToString();
+                var table = dataSet.Tables[0];
+                article.Id = Convert.ToInt32(table.Rows[0]["Id"].ToString());
+                article.Title = table.Rows[0]["Title"].ToString();
+                article.Des = table.Rows[0]["Des"].ToString();
+                article.Detail = table.Rows[0]["Detail"].ToString();
+                article.CategoryId = Convert.ToInt32(table.Rows[0]["CategoryId"].ToString());
+                var date = table.Rows[0]["DatePublic"].ToString();
                 if (!string.IsNullOrEmpty(date))
                 {
                     article.DatePublic = Convert.ToDateTime(date);
                 }
-                article.IsPublic = Convert.ToBoolean(dataSet.Tables[0].Rows[0]["IsPublic"].ToString());
-                //article.Position = dataSet.Tables[0].Rows[0]["Position"].ToString();
-                article.Thumbs = dataSet.Tables[0].Rows[0]["Thumbs"].ToString();
+                article.IsPublic = Convert.ToBoolean(table.Rows[0]["IsPublic"].ToString());
+                //article.Position = table.Rows[0]["Position"].ToString();
+                article.Thumbs = table.Rows[0]["Thumbs"].ToString();
 
                 return article;
             }
@@ -258,7 +258,7 @@ namespace JS_basic4.DataAccess
         public List<Position> GetArticlePosition(int articleid)
         {
             DataSet dataSet = null;
-            List<Position> positions = null;
+            List<Position> positionList = null;
             try
             {
                 conn = new SqlConnection(ConfigurationManager.ConnectionStrings["mycon"].ToString());
@@ -272,21 +272,21 @@ namespace JS_basic4.DataAccess
                 adapter.SelectCommand = cmd;
                 dataSet = new DataSet();
                 adapter.Fill(dataSet);
-                positions = new List<Position>();
-
-                for (int i = 0; i < dataSet.Tables[0].Rows.Count; i++)
+                positionList = new List<Position>();
+                var table = dataSet.Tables[0];
+                for (int i = 0; i < table.Rows.Count; i++)
                 {
                     Position position = new Position();
-                    position.Id = Convert.ToInt32(dataSet.Tables[0].Rows[i]["Id"].ToString());
-                    position.Name = dataSet.Tables[0].Rows[i]["Name"].ToString();
+                    position.Id = Convert.ToInt32(table.Rows[i]["Id"].ToString());
+                    position.Name = table.Rows[i]["Name"].ToString();
 
-                    positions.Add(position);
+                    positionList.Add(position);
                 }
-                return positions;
+                return positionList;
             }
             catch
             {
-                return positions;
+                return positionList;
             }
             finally
             {
@@ -325,7 +325,7 @@ namespace JS_basic4.DataAccess
         public List<Articles> SearchArticle(string searchString)
         {
             DataSet dataSet = null;
-            List<Articles> articlesList = null;
+            List<Articles> articleList = null;
             try
             {
                 conn = new SqlConnection(ConfigurationManager.ConnectionStrings["mycon"].ToString());
@@ -338,32 +338,32 @@ namespace JS_basic4.DataAccess
                 adapter.SelectCommand = cmd;
                 dataSet = new DataSet();
                 adapter.Fill(dataSet);
-                articlesList = new List<Articles>();
-
-                for (int i = 0; i < dataSet.Tables[0].Rows.Count; i++)
+                articleList = new List<Articles>();
+                var table = dataSet.Tables[0];
+                for (int i = 0; i < table.Rows.Count; i++)
                 {
                     Articles articles = new Articles();
-                    articles.Id = Convert.ToInt32(dataSet.Tables[0].Rows[i]["Id"].ToString());
-                    articles.Title = dataSet.Tables[0].Rows[i]["Title"].ToString();
-                    articles.Des = dataSet.Tables[0].Rows[i]["Des"].ToString();
-                    articles.Detail = dataSet.Tables[0].Rows[i]["Detail"].ToString();
-                    articles.Category = dataSet.Tables[0].Rows[i]["Category"].ToString();
-                    var date = dataSet.Tables[0].Rows[i]["DatePublic"].ToString();
+                    articles.Id = Convert.ToInt32(table.Rows[i]["Id"].ToString());
+                    articles.Title = table.Rows[i]["Title"].ToString();
+                    articles.Des = table.Rows[i]["Des"].ToString();
+                    articles.Detail = table.Rows[i]["Detail"].ToString();
+                    articles.Category = table.Rows[i]["Category"].ToString();
+                    var date = table.Rows[i]["DatePublic"].ToString();
                     if (!string.IsNullOrEmpty(date))
                     {
                         articles.DatePublic = Convert.ToDateTime(date);
                     }
-                    articles.IsPublic = dataSet.Tables[0].Rows[i]["IsPublic"].ToString();
-                    articles.Position = dataSet.Tables[0].Rows[i]["Position"].ToString();
-                    articles.Thumbs = dataSet.Tables[0].Rows[i]["Thumbs"].ToString();
+                    articles.IsPublic = table.Rows[i]["IsPublic"].ToString();
+                    articles.Position = table.Rows[i]["Position"].ToString();
+                    articles.Thumbs = table.Rows[i]["Thumbs"].ToString();
 
-                    articlesList.Add(articles);
+                    articleList.Add(articles);
                 }
-                return articlesList;
+                return articleList;
             }
             catch
             {
-                return articlesList;
+                return articleList;
             }
             finally
             {

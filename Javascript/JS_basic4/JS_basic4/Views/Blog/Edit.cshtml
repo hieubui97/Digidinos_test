@@ -2,9 +2,23 @@
 
 @{
     ViewBag.Title = "New";
-    List<JS_basic4.Models.Position> positions = ViewBag.Positions;
-    List<JS_basic4.Models.Position> articlePositions = ViewBag.ArticlePositions;
-    List<JS_basic4.Models.Category> categories = ViewBag.Category;
+    List<Position> positions = ViewBag.Positions;
+    List<Position> articlePositions = ViewBag.ArticlePositions;
+    List<Category> categories = ViewBag.Category;
+}
+
+@functions {
+    public static bool CheckPosition(Position position, List<Position> articlePositions)
+    {
+        foreach (var item in articlePositions)
+        {
+            if (item.Id == position.Id)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
 <div class="container">
@@ -78,23 +92,38 @@
                             <label>Vị trí</label>
                             @foreach (var item in positions)
                             {
-                                bool flag = false;
                                 <div class="form-check">
                                     <label class="form-check-label">
-                                        @foreach (var position in articlePositions)
-                                        {
-                                            if (item.Id == position.Id)
+                                        @{
+                                            var isChecked = CheckPosition(item, articlePositions);
+                                            if (isChecked)
                                             {
                                                 <input type="checkbox" class="form-check-input" value="@item.Id" name="Position" checked>@item.Name
-                                                flag = true;
                                             }
-                                        }
-                                        @if (!flag)
-                                        {
-                                            <input type="checkbox" class="form-check-input" value="@item.Id" name="Position">@item.Name
+                                            else
+                                            {
+                                                <input type="checkbox" class="form-check-input" value="@item.Id" name="Position">@item.Name
+                                            }
                                         }
                                     </label>
                                 </div>
+                                @*bool flag = false;
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            @foreach (var position in articlePositions)
+                                            {
+                                                if (item.Id == position.Id)
+                                                {
+                                                    <input type="checkbox" class="form-check-input" value="@item.Id" name="Position" checked>@item.Name
+                                                    flag = true;
+                                                }
+                                            }
+                                            @if (!flag)
+                                            {
+                                                <input type="checkbox" class="form-check-input" value="@item.Id" name="Position">@item.Name
+                                            }
+                                        </label>
+                                    </div>*@
                             }
                             @Html.ValidationMessageFor(model => model.Position, "", new { @class = "text-danger" })
                         </div>
@@ -152,44 +181,44 @@
 
 @section Upload{
     <script>
-            $(function () { //Thực hiện hàm sau khi load xong trang
+        $(function () { //Thực hiện hàm sau khi load xong trang
 
-                //Đăng ký sự kiện click nút btnUpload
-                $('#btnUpload').click(function () {
-                    $('#fileUpload').trigger('click');
-                });
-
-                //Bắt sự kiện change data của fileUpload
-                $('#fileUpload').change(function () {
-                    //Kiểm tra trình duyệt có hỗ trợ FormData object không?
-                    if (window.FormData !== undefined) {    //so sánh tuyệt đối: cả kiểu dl và dữ liệu
-                        //Lấy dữ liệu trên fileUpload
-                        var fileUpload = $('#fileUpload').get(0);   //Lấy đối tượng đầu tiên
-                        var files = fileUpload.files;
-
-                        //Tạo đối tượng FormData
-                        var formData = new FormData();
-                        //Đưa dữ liệu vào form
-                        formData.append('file', files[0]);
-
-                        $.ajax(
-                            {
-                                type: 'POST',
-                                url: '/Blog/ProcessUpload',
-                                contentType: false, //Không có header
-                                processData: false, //không xử lý dữ liệu
-                                data: formData,
-                                success: function (urlImage) {
-                                    $('#pictureUpload').attr('src', urlImage);
-                                    $('#picture').val(urlImage);
-                                },
-                                error: function (err) {
-                                    alert('Lỗi upload: ' + err.statusText);
-                                }
-                            }
-                        );
-                    }
-                });
+            //Đăng ký sự kiện click nút btnUpload
+            $('#btnUpload').click(function () {
+                $('#fileUpload').trigger('click');
             });
+
+            //Bắt sự kiện change data của fileUpload
+            $('#fileUpload').change(function () {
+                //Kiểm tra trình duyệt có hỗ trợ FormData object không?
+                if (window.FormData !== undefined) {    //so sánh tuyệt đối: cả kiểu dl và dữ liệu
+                    //Lấy dữ liệu trên fileUpload
+                    var fileUpload = $('#fileUpload').get(0);   //Lấy đối tượng đầu tiên
+                    var files = fileUpload.files;
+
+                    //Tạo đối tượng FormData
+                    var formData = new FormData();
+                    //Đưa dữ liệu vào form
+                    formData.append('file', files[0]);
+
+                    $.ajax(
+                        {
+                            type: 'POST',
+                            url: '/Blog/ProcessUpload',
+                            contentType: false, //Không có header
+                            processData: false, //không xử lý dữ liệu
+                            data: formData,
+                            success: function (urlImage) {
+                                $('#pictureUpload').attr('src', urlImage);
+                                $('#picture').val(urlImage);
+                            },
+                            error: function (err) {
+                                alert('Lỗi upload: ' + err.statusText);
+                            }
+                        }
+                    );
+                }
+            });
+        });
     </script>
 }
