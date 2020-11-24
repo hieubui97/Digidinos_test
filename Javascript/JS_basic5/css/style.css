@@ -133,7 +133,7 @@
 }
 
 .portfolio img {
-    height: 80%;
+    height: 95%;
     width: 70%;
     /* margin: 1em; */
     margin: 0 15%;
@@ -190,7 +190,7 @@
     background: #F97300;
     color: #fff;
     text-align: center;
-    /* border-bottom-left-radius: 93%; */
+    border-bottom-left-radius: 93%;
     transition: .3s ease-in-out;
     line-height: 28px;
 }
@@ -205,7 +205,7 @@
     background: #f973007d;
     position: absolute;
     width: 89%;
-    /* padding: 5em; */
+    padding: 5em;
     top: 0;
     border-bottom-left-radius: 0;
 }
