@@ -16,26 +16,56 @@ namespace OOP
             // ProductDemo
             ProductDemo productDemo = new ProductDemo();
             var product = productDemo.createProductTest(1, "DELL", 1);
-            productDemo.printProduct(product);
+            //productDemo.printProduct(product);
 
             // CategoryDemo
             CategoryDemo categoryDemo = new CategoryDemo();
             var category = categoryDemo.createCategoryTest(1, "Laptop");
-            categoryDemo.printCategoryTest(category);
+            //categoryDemo.printCategoryTest(category);
 
             // Accessory
             AccessoryDemo accessoryDemo = new AccessoryDemo();
             var accessory = accessoryDemo.createAccessoryTest(1, "USB");
-            accessoryDemo.printAccessoryTest(accessory);
+            //accessoryDemo.printAccessoryTest(accessory);
+
+
+
 
             // DatabaseDemo
             DatabaseDemo databaseDemo = new DatabaseDemo();
-            databaseDemo.insertTableTest<Product>(Database.PRODUCT, product);
-            databaseDemo.insertTableTest<Category>(Database.CATEGORY, category);
-            databaseDemo.insertTableTest<Accessory>(Database.ACCESSORY, accessory);
+            //insert
+            //databaseDemo.insertTableTest<Product>(Database.PRODUCT, product);
+            //databaseDemo.insertTableTest<Category>(Database.CATEGORY, category);
+            //databaseDemo.insertTableTest<Accessory>(Database.ACCESSORY, accessory);
 
-            var productTable = databaseDemo.selectTable(Database.PRODUCT, "");
-            Console.WriteLine(productTable);
+            //init
+            databaseDemo.initDatabase();
+
+            //update
+            //var update = databaseDemo.updateTableTest<Product>(Database.PRODUCT, product);
+            var update = databaseDemo.updateTableTest<Product>(Database.PRODUCT,product.Id, product);
+
+            //delete
+            //var delete = databaseDemo.deleteTableTest<Product>(Database.PRODUCT, product);
+
+            //truncate
+            databaseDemo.truncateTableTest(Database.ACCESSORY);
+
+            //print
+            databaseDemo.printTableTest(Database.PRODUCT);
+            //databaseDemo.printTableTest(Database.CATEGORY);
+            databaseDemo.printTableTest(Database.ACCESSORY);
+            //select
+            var productTable = databaseDemo.selectTableTest(Database.PRODUCT);
+
+
+            //CategoryDaoDemo
+            CategoryDaoDemo categoryDaoDemo = new CategoryDaoDemo();
+            //categoryDaoDemo.insertTest(category);
+            categoryDaoDemo.updateTest(category);
+            databaseDemo.printTableTest(Database.CATEGORY);
+
+
 
             Console.ReadKey();
         }

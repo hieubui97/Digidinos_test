@@ -6,17 +6,14 @@ using System.Threading.Tasks;
 
 namespace OOP.Entity
 {
-    class Product
+    class Product : BaseRow
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public int categoryId { get; set; }
-
-        //public int Id
-        //{
-        //    get { return id; }
-        //    set { id = value; }
-        //}
+        private int categoryId;
+        public int CategoryId
+        {
+            get { return categoryId; }
+            set { categoryId = value; }
+        }
 
         public Product(int id, string name, int categoryId)
         {
@@ -25,17 +22,33 @@ namespace OOP.Entity
             this.categoryId = categoryId;
         }
 
-        public Product()
+        public int getCategoryId()
         {
+            return this.categoryId;
+        }
+        public void setCategoryId(int id)
+        {
+            this.categoryId = id;
         }
 
-        public int getId()
+
+        public override int getId()
         {
-            return this.id;
+            return id;
         }
-        public void setId(int id)
+
+        public override void setId(int id)
         {
             this.id = id;
+        }
+
+        public override string getName()
+        {
+            return name;
+        }
+        public override void setName(string name)
+        {
+            this.name = name;
         }
     }
 }

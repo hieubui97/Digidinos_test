@@ -8,3 +8,13 @@ C:\Users\Hieu Bui\source\repos\OOP\OOP\obj\Debug\OOP.pdb
 C:\Users\Hieu Bui\source\repos\OOP\OOP\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Hieu Bui\source\repos\OOP\OOP\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Hieu Bui\source\repos\OOP\OOP\obj\Debug\OOP.csproj.CopyComplete
+C:\Users\Hieu Bui\source\repos\Digidinos_test\C#\OOP\OOP\bin\Debug\OOP.exe.config
+C:\Users\Hieu Bui\source\repos\Digidinos_test\C#\OOP\OOP\bin\Debug\OOP.exe
+C:\Users\Hieu Bui\source\repos\Digidinos_test\C#\OOP\OOP\bin\Debug\OOP.pdb
+C:\Users\Hieu Bui\source\repos\Digidinos_test\C#\OOP\OOP\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Hieu Bui\source\repos\Digidinos_test\C#\OOP\OOP\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Hieu Bui\source\repos\Digidinos_test\C#\OOP\OOP\obj\Debug\OOP.csprojAssemblyReference.cache
+C:\Users\Hieu Bui\source\repos\Digidinos_test\C#\OOP\OOP\obj\Debug\OOP.csproj.CoreCompileInputs.cache
+C:\Users\Hieu Bui\source\repos\Digidinos_test\C#\OOP\OOP\obj\Debug\OOP.csproj.CopyComplete
+C:\Users\Hieu Bui\source\repos\Digidinos_test\C#\OOP\OOP\obj\Debug\OOP.exe
+C:\Users\Hieu Bui\source\repos\Digidinos_test\C#\OOP\OOP\obj\Debug\OOP.pdb

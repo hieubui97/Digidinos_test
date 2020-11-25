@@ -11,7 +11,7 @@ namespace OOP.Demo
     {
         public Category createCategoryTest(int id, string name)
         {
-            Category category = new Category() { id = id, name = name };
+            Category category = new Category(id, name);
 
             return category;
         }
@@ -19,8 +19,8 @@ namespace OOP.Demo
         public void printCategoryTest(Category category)
         {
             Console.WriteLine("Category");
-            Console.WriteLine("id:" + category.id);
-            Console.WriteLine("name:" + category.name);
+            Console.WriteLine("id:" + category.Id);
+            Console.WriteLine("name:" + category.Name);
             Console.WriteLine();
         }
     }

@@ -18,9 +18,9 @@ namespace OOP.Demo
         public void printProduct(Product product)
         {
             Console.WriteLine("Product");
-            Console.WriteLine("id:" + product.id);
-            Console.WriteLine("name:" + product.name);
-            Console.WriteLine("categoryId:" + product.categoryId);
+            Console.WriteLine("id:" + product.Id);
+            Console.WriteLine("name:" + product.Name);
+            Console.WriteLine("categoryId:" + product.CategoryId);
             Console.WriteLine();
         }
     }

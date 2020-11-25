@@ -11,7 +11,7 @@ namespace OOP.Demo
     {
         public Accessory createAccessoryTest(int id, string name)
         {
-            Accessory accessory = new Accessory() { id = id, name = name };
+            Accessory accessory = new Accessory(id, name);
 
             return accessory;
         }
@@ -19,8 +19,8 @@ namespace OOP.Demo
         public void printAccessoryTest(Accessory accessory)
         {
             Console.WriteLine("Accessory");
-            Console.WriteLine("id:" + accessory.id);
-            Console.WriteLine("name:" + accessory.name);
+            Console.WriteLine("id:" + accessory.Id);
+            Console.WriteLine("name:" + accessory.Name);
             Console.WriteLine();
         }
     }
