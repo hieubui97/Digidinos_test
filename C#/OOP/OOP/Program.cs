@@ -61,7 +61,7 @@ namespace OOP
 
             //CategoryDaoDemo
             CategoryDaoDemo categoryDaoDemo = new CategoryDaoDemo();
-            //categoryDaoDemo.insertTest(category);
+            categoryDaoDemo.insertTest(category);
             categoryDaoDemo.updateTest(category);
             databaseDemo.printTableTest(Database.CATEGORY);
 

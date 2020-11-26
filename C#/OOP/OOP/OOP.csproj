@@ -47,8 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\AccessoryDAO.cs" />
+    <Compile Include="DAO\BaseDAO.cs" />
     <Compile Include="DAO\CategoryDAO.cs" />
     <Compile Include="DAO\Database.cs" />
+    <Compile Include="DAO\IDAO.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
     <Compile Include="Demo\AccessoryDemo.cs" />
     <Compile Include="Demo\CategoryDaoDemo.cs" />
@@ -58,6 +60,7 @@
     <Compile Include="Entity\Accessory.cs" />
     <Compile Include="Entity\BaseRow.cs" />
     <Compile Include="Entity\Category.cs" />
+    <Compile Include="Entity\IEntity.cs" />
     <Compile Include="Entity\Product.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

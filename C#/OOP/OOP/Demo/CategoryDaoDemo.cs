@@ -1,6 +1,7 @@
 ﻿using OOP.DAO;
 using OOP.Entity;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace OOP.Demo
         public bool insertTest(Category category)
         {
             CategoryDAO categoryDao = new CategoryDAO();
-            var result = categoryDao.insertCategory(category);
+            var result = categoryDao.insert(category);
 
             return result;
         }
@@ -21,7 +22,29 @@ namespace OOP.Demo
         public bool updateTest(Category category)
         {
             CategoryDAO categoryDao = new CategoryDAO();
-            var result = categoryDao.updateCategory(category);
+            var result = categoryDao.update(category);
+
+            return result;
+        }
+
+        public ArrayList selectTest()
+        {
+            CategoryDAO categoryDao = new CategoryDAO();
+            var result = categoryDao.select();
+
+            return result;
+        }
+        public bool deleteTest(Category category)
+        {
+            CategoryDAO categoryDao = new CategoryDAO();
+            var result = categoryDao.delete(category);
+
+            return result;
+        }
+        public bool truncateTest()
+        {
+            CategoryDAO categoryDao = new CategoryDAO();
+            var result = categoryDao.truncate();
 
             return result;
         }

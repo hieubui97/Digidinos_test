@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace OOP.DAO
 {
-    class AccessoryDAO
+    class AccessoryDAO: BaseDAO, IDAO
     {
         Database db = Database.geIntance();
 
-        public bool insertAccessory(Accessory accessory)
+        public override bool insert<Accessory>(Accessory accessory)
         {
             try
             {
@@ -25,7 +25,7 @@ namespace OOP.DAO
             }
         }
 
-        public bool updateAccessory(Accessory accessory)
+        public override bool update<Accessory>(Accessory accessory)
         {
             try
             {
@@ -38,7 +38,7 @@ namespace OOP.DAO
             }
         }
 
-        public ArrayList selectAccessory()
+        public override ArrayList select()
         {
             try
             {
@@ -50,7 +50,7 @@ namespace OOP.DAO
             }
         }
 
-        public bool deleteAccessory(Accessory accessory)
+        public override bool delete<Accessory>(Accessory accessory)
         {
             try
             {
@@ -61,7 +61,7 @@ namespace OOP.DAO
                 return false;
             }
         }
-        public bool truncateAccessory()
+        public override bool truncate()
         {
             try
             {

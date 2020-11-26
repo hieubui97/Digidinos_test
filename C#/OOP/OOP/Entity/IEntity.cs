@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace OOP.Entity
 {
-    class Accessory: BaseRow
+    interface IEntity
     {
-        public Accessory(int id, string name)
-        {
-            this.id = id;
-            this.name = name;
-        }
-
+        int getId();
+        void setId(int id);
+        string getName();
+        void setName(string name);
     }
 }

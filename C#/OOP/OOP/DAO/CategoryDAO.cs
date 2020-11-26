@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace OOP.DAO
 {
-    class CategoryDAO
+    class CategoryDAO : BaseDAO, IDAO
     {
         Database db = Database.geIntance();
 
-        public bool insertCategory(Category category)
+        public override bool insert<Category>(Category category)
         {
             try
             {
@@ -25,7 +25,7 @@ namespace OOP.DAO
             }
         }
 
-        public bool updateCategory(Category category)
+        public override bool update<Category>(Category category)
         {
             try
             {
@@ -38,7 +38,7 @@ namespace OOP.DAO
             }
         }
 
-        public ArrayList selectCategory()
+        public override ArrayList select()
         {
             try
             {
@@ -50,7 +50,7 @@ namespace OOP.DAO
             }
         }
 
-        public bool deleteCategory(Category category)
+        public override bool delete<Category>(Category category)
         {
             try
             {
@@ -61,7 +61,7 @@ namespace OOP.DAO
                 return false;
             }
         }
-        public bool truncateCategory()
+        public override bool truncate()
         {
             try
             {

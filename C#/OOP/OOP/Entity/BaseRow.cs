@@ -21,9 +21,21 @@ namespace OOP.Entity
             set { name = value; }
         }
 
-        public abstract int getId();
-        public abstract void setId(int id);
-        public abstract string getName();
-        public abstract void setName(string name);
+        public int getId()
+        {
+            return this.id;
+        }
+        public void setId(int id)
+        {
+            this.id = id;
+        }
+        public string getName()
+        {
+            return this.name;
+        }
+        public void setName(string name)
+        {
+            this.name = name;
+        }
     }
 }

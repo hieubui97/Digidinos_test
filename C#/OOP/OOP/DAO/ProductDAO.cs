@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace OOP.DAO
 {
-    class ProductDAO
+    class ProductDAO: BaseDAO, IDAO
     {
         Database db = Database.geIntance();
 
-        public bool insertProduct(Product product)
+        public override bool insert<Product>(Product product)
         {
             try
             {
@@ -25,7 +25,7 @@ namespace OOP.DAO
             }
         }
 
-        public bool updateProduct(Product product)
+        public override bool update<Product>(Product product)
         {
             try
             {
@@ -38,7 +38,7 @@ namespace OOP.DAO
             }
         }
 
-        public ArrayList selectProduct()
+        public override ArrayList select()
         {
             try
             {
@@ -50,7 +50,7 @@ namespace OOP.DAO
             }
         }
 
-        public bool deleteProduct(Product product)
+        public override bool delete<Product>(Product product)
         {
             try
             {
@@ -61,7 +61,7 @@ namespace OOP.DAO
                 return false;
             }
         }
-        public bool truncateProduct()
+        public override bool truncate()
         {
             try
             {
