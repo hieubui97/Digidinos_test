@@ -96,9 +96,6 @@ namespace OOP.DAO
                 {
                     Product product = (Product)Convert.ChangeType(row, typeof(Product));
 
-                    //int i = productTable.IndexOf(product);
-                    //productTable[i] = row;
-
                     for (int i = 0; i < productTable.Count; i++)
                     {
                         Product item = (Product)Convert.ChangeType(productTable[i], typeof(Product));
