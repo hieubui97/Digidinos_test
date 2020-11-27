@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOP.Entity
 {
-    class Product : BaseRow, IEntity
+    public class Product : BaseRow, IEntity
     {
         private int categoryId;
         public int CategoryId

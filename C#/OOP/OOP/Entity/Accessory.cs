@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOP.Entity
 {
-    class Accessory: BaseRow
+    public class Accessory: BaseRow
     {
         public Accessory(int id, string name)
         {

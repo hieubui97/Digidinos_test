@@ -66,7 +66,6 @@ namespace OOP
             databaseDemo.printTableTest(Database.CATEGORY);
 
 
-
             Console.ReadKey();
         }
     }

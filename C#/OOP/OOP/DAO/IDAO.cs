@@ -9,8 +9,8 @@ namespace OOP.DAO
 {
     interface IDAO
     {
-        bool insert<T>(T row);
-        bool update<T>(T row);
+        int insert<T>(T row);
+        int update<T>(T row);
         ArrayList select();
         bool delete<T>(T row);
         bool truncate();

@@ -11,7 +11,7 @@ namespace OOP.Demo
 {
     class CategoryDaoDemo
     {
-        public bool insertTest(Category category)
+        public int insertTest(Category category)
         {
             CategoryDAO categoryDao = new CategoryDAO();
             var result = categoryDao.insert(category);
@@ -19,7 +19,7 @@ namespace OOP.Demo
             return result;
         }
 
-        public bool updateTest(Category category)
+        public int updateTest(Category category)
         {
             CategoryDAO categoryDao = new CategoryDAO();
             var result = categoryDao.update(category);

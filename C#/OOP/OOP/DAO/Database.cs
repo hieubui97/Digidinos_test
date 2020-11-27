@@ -7,7 +7,7 @@ using System.Text;
 
 namespace OOP.DAO
 {
-    class Database
+    public class Database
     {
         public const string PRODUCT = "productTable";
         public const string CATEGORY = "categoryTable";
@@ -34,6 +34,7 @@ namespace OOP.DAO
                     productTable.Add(product);
                     return 1;
                 }
+
                 if (name.Equals(CATEGORY))
                 {
                     Category category = (Category)Convert.ChangeType(row, typeof(Category));
@@ -41,6 +42,7 @@ namespace OOP.DAO
 
                     return 1;
                 }
+
                 if (name.Equals(ACCESSORY))
                 {
                     Accessory accessory = (Accessory)Convert.ChangeType(row, typeof(Accessory));
@@ -48,7 +50,6 @@ namespace OOP.DAO
 
                     return 1;
                 }
-
 
                 return 0;
             }
@@ -67,10 +68,12 @@ namespace OOP.DAO
                 {
                     return productTable;
                 }
+
                 if (name.Equals(CATEGORY))
                 {
                     return categoryTable;
                 }
+
                 if (name.Equals(ACCESSORY))
                 {
                     return accessoryTable;
@@ -107,6 +110,7 @@ namespace OOP.DAO
                     }
                     return 0;
                 }
+
                 if (name.Equals(CATEGORY))
                 {
                     Category category = (Category)Convert.ChangeType(row, typeof(Category));
@@ -121,6 +125,7 @@ namespace OOP.DAO
                     }
                     return 0;
                 }
+
                 if (name.Equals(ACCESSORY))
                 {
                     Accessory accessory = (Accessory)Convert.ChangeType(row, typeof(Accessory));
@@ -155,6 +160,7 @@ namespace OOP.DAO
 
                     return true;
                 }
+
                 if (name.Equals(CATEGORY))
                 {
                     Category category = (Category)Convert.ChangeType(row, typeof(Category));
@@ -162,6 +168,7 @@ namespace OOP.DAO
 
                     return true;
                 }
+
                 if (name.Equals(ACCESSORY))
                 {
                     Accessory accessory = (Accessory)Convert.ChangeType(row, typeof(Accessory));
@@ -169,7 +176,6 @@ namespace OOP.DAO
 
                     return true;
                 }
-
 
                 return false;
             }
@@ -187,10 +193,12 @@ namespace OOP.DAO
                 {
                     productTable.Clear();
                 }
+
                 if (name.Equals(CATEGORY))
                 {
                     categoryTable.Clear();
                 }
+
                 if (name.Equals(ACCESSORY))
                 {
                     accessoryTable.Clear();
@@ -224,6 +232,7 @@ namespace OOP.DAO
                     }
                     return 0;
                 }
+
                 if (name.Equals(CATEGORY))
                 {
                     Category category = (Category)Convert.ChangeType(row, typeof(Category));
@@ -238,6 +247,7 @@ namespace OOP.DAO
                     }
                     return 0;
                 }
+
                 if (name.Equals(ACCESSORY))
                 {
                     Accessory accessory = (Accessory)Convert.ChangeType(row, typeof(Accessory));

@@ -9,10 +9,73 @@ namespace OOP.DAO
 {
     public abstract class BaseDAO
     {
-        public abstract bool insert<T>(T row);
-        public abstract bool update<T>(T row);
-        public abstract ArrayList select();
-        public abstract bool delete<T>(T row);
-        public abstract bool truncate();
+        protected Database db;
+        protected string tableName;
+
+        public BaseDAO()
+        {
+            db = Database.geIntance();
+        }
+
+        public int insert<T>( T row)
+        {
+            try
+            {
+                return db.insertTable<T>(tableName, row);
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+        
+        public int update<T>(T row)
+        {
+            try
+            {
+                return db.updateTable<T>(tableName, row);
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+
+        public ArrayList select()
+        {
+            try
+            {
+                return db.selectTable(tableName);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public bool delete<T>(T row)
+        {
+            try
+            {
+                return db.deleteTable<T>(tableName, row);
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool truncate()
+        {
+            try
+            {
+                db.truncateTable(tableName);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }       
     }
 }

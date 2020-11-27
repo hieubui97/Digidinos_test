@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOP.Entity
 {
-    class Category : BaseRow
+    public class Category : BaseRow
     {
         public Category(int id, string name)
         {
