@@ -16,6 +16,7 @@ namespace Algorithm.Algorithm
             {
                 products[i].CategoryName = Bai13_SortByCategoryName.getNameCategory(products[i].CategoryId, categories);
             }
+
             return products;
         }
     }

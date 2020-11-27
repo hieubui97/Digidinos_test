@@ -10,7 +10,7 @@ namespace Algorithm.Algorithm
     {
         public static int calMonth(double money, float rate)
         {
-            if (money <= 0 || money  == 1 || rate <= 0)
+            if (money <= 0 || money == 1 || rate <= 0)
                 return 0;
 
             int month = 1;
@@ -26,10 +26,11 @@ namespace Algorithm.Algorithm
 
         public static int calMonthRecursion(double money, float rate)
         {
-            if (money <= 0 || money == 1  || rate <= 0)
+            if (money <= 0 || money == 1 || rate <= 0)
                 return 0;
-           
+
             double target = money + money * rate / 100;
+
             return recursion(target, 1, money, rate);
         }
 
@@ -40,8 +41,7 @@ namespace Algorithm.Algorithm
                 return month;
             }
 
-            month++;
-            return recursion(target += target * rate / 100, month, money, rate);
+            return recursion(target += target * rate / 100, month + 1, money, rate);
         }
     }
 }

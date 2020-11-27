@@ -14,19 +14,18 @@ namespace Algorithm.Algorithm
         {
             int i, j;
             Product temp;
-            for(i = 0; i < products.Count-1; i++)
+            for (i = 0; i < products.Count - 1; i++)
             {
-                for(j = 0; j < products.Count-1-i; j++)
+                for (j = 0; j < products.Count - 1 - i; j++)
                 {
                     if (products[j].Price > products[j + 1].Price)
                     {
-                        //Product.swap( products[j], products[j + 1]);
                         temp = products[j];
                         products[j] = products[j + 1];
                         products[j + 1] = temp;
                     }
                 }
-            } 
+            }
             return products;
         }
     }

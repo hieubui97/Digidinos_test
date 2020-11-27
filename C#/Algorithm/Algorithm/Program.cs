@@ -39,6 +39,9 @@ namespace Algorithm
             menus.Add(new Menu() { Id = 6, Title = "Thể thao quốc tế", Parent_id = 1 });
             menus.Add(new Menu() { Id = 7, Title = "Môi trường đô thị", Parent_id = 5 });
             menus.Add(new Menu() { Id = 8, Title = "Giao thông ùn tắc", Parent_id = 4 });
+            menus.Add(new Menu() { Id = 9, Title = "Giao thông ùn tắc 2020", Parent_id = 8 });
+            menus.Add(new Menu() { Id = 10, Title = "Giao thông ùn tắc 2021", Parent_id = 8 });
+
 
             //Bai 11
             List<Product> productsSortByPrice = Bai11_SortByPrice.sortByPrice(productList);
@@ -71,10 +74,25 @@ namespace Algorithm
             //Bai 22
             //int month = Bai22_CalMonth.calMonth(2000, 5);
             int month = Bai22_CalMonth.calMonthRecursion(2000, 5);
-            Console.WriteLine("Month: " + month);
+            //Console.WriteLine("Month: " + month);
 
             //Bai 23
-            Bai23_printMenus.printMenus(menus);
+            //Bai23_printMenus.printMenus(menus);
+
+            //Bai 24
+            Bai24_Queue<int> queue = new Bai24_Queue<int>();
+            queue.push(1);
+            queue.push(2);
+            Console.WriteLine(queue.get());
+            Console.WriteLine(queue.get());
+
+            //Bai 25
+            Bai25_Stack<int> stack = new Bai25_Stack<int>();
+            stack.push(1);
+            stack.push(2);
+            Console.WriteLine(stack.get());
+            Console.WriteLine(stack.get());
+
 
             Console.ReadKey();
         }

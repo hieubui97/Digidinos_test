@@ -29,6 +29,7 @@ namespace Algorithm.Algorithm
                         min = j;
                     }
                 }
+
                 if (min != i)
                 {
                     temp = products[i];

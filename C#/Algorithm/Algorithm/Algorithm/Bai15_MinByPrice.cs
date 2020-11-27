@@ -12,7 +12,7 @@ namespace Algorithm.Algorithm
         public static Product minByPrice(List<Product> products)
         {
             int i, iMin = 0, priceMin = products[0].Price;
-            for(i = 1; i < products.Count; i++)
+            for (i = 1; i < products.Count; i++)
             {
                 if (products[i].Price < priceMin)
                 {

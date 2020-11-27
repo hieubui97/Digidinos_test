@@ -13,11 +13,10 @@ namespace Algorithm.Algorithm
         {
             int i, holePosition;
             Product valueToInsert;
-            for(i = 0; i < products.Count; i++)
+            for (i = 0; i < products.Count; i++)
             {
                 valueToInsert = products[i];
                 holePosition = i;
-
 
                 while (holePosition > 0 && products[holePosition - 1].Name.Length < valueToInsert.Name.Length)
                 {

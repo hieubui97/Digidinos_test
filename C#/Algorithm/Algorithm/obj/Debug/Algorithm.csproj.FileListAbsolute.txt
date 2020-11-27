@@ -5,3 +5,10 @@ C:\Users\Hieu Bui\source\repos\Algorithm\Algorithm\bin\Debug\Algorithm.exe
 C:\Users\Hieu Bui\source\repos\Algorithm\Algorithm\bin\Debug\Algorithm.pdb
 C:\Users\Hieu Bui\source\repos\Algorithm\Algorithm\obj\Debug\Algorithm.exe
 C:\Users\Hieu Bui\source\repos\Algorithm\Algorithm\obj\Debug\Algorithm.pdb
+C:\Users\Hieu Bui\source\repos\Digidinos_test\C#\Algorithm\Algorithm\bin\Debug\Algorithm.exe.config
+C:\Users\Hieu Bui\source\repos\Digidinos_test\C#\Algorithm\Algorithm\bin\Debug\Algorithm.exe
+C:\Users\Hieu Bui\source\repos\Digidinos_test\C#\Algorithm\Algorithm\bin\Debug\Algorithm.pdb
+C:\Users\Hieu Bui\source\repos\Digidinos_test\C#\Algorithm\Algorithm\obj\Debug\Algorithm.csprojAssemblyReference.cache
+C:\Users\Hieu Bui\source\repos\Digidinos_test\C#\Algorithm\Algorithm\obj\Debug\Algorithm.csproj.CoreCompileInputs.cache
+C:\Users\Hieu Bui\source\repos\Digidinos_test\C#\Algorithm\Algorithm\obj\Debug\Algorithm.exe
+C:\Users\Hieu Bui\source\repos\Digidinos_test\C#\Algorithm\Algorithm\obj\Debug\Algorithm.pdb

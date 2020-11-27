@@ -13,6 +13,7 @@ namespace Algorithm.Algorithm
         {
             Console.WriteLine(menu.Title);
         }
+
         public static void printMenus(List<Menu> menus)
         {
             int i;
@@ -21,6 +22,7 @@ namespace Algorithm.Algorithm
                 if (menus[i].Parent_id == 0)
                 {
                     printMenu(menus[i]);
+
                     if (hasSubMenus(menus[i].Id, menus))
                     {
                         printSubMenus(menus[i].Id, 1, menus);
@@ -31,25 +33,24 @@ namespace Algorithm.Algorithm
 
         private static void printSubMenus(int parentId, int level, List<Menu> menus)
         {
-            if (hasSubMenus(parentId, menus))
+            int i;
+            for (i = 0; i < menus.Count; i++)
             {
-                int i;
-                for (i = 0; i < menus.Count; i++)
+                if (menus[i].Parent_id == parentId)
                 {
-                    if (menus[i].Parent_id == parentId)
+                    for (int j = 0; j < level; j++)
                     {
-                       for(int j = 0; j< level; j++)
-                        {
-                            Console.Write("--");
-                        }
-                        printMenu(menus[i]);
-                        if (hasSubMenus(menus[i].Id, menus))
-                        {
-                            printSubMenus(menus[i].Id, level++, menus);
-                        }
+                        Console.Write("--");
+                    }
+                    printMenu(menus[i]);
+
+                    if (hasSubMenus(menus[i].Id, menus))
+                    {
+                        printSubMenus(menus[i].Id, level + 1, menus);
                     }
                 }
-            }      
+
+            }
         }
 
         private static bool hasSubMenus(int parentId, List<Menu> menus)
@@ -59,6 +60,7 @@ namespace Algorithm.Algorithm
             {
                 return true;
             }
+
             return false;
         }
     }
