@@ -22,5 +22,16 @@ namespace Algorithm.Entity
             get { return name; }
             set { name = value; }
         }
+
+        public static List<Category> init()
+        {
+            List<Category> categorieList = new List<Category>();
+            categorieList.Add(new Category() { Id = 1, Name = "Comuter" });
+            categorieList.Add(new Category() { Id = 2, Name = "Memory" });
+            categorieList.Add(new Category() { Id = 3, Name = "Card" });
+            categorieList.Add(new Category() { Id = 4, Name = "Acsesory" });
+
+            return categorieList;
+        }
     }
 }

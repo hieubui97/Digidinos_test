@@ -54,5 +54,21 @@ namespace Algorithm.Entity
                 Product.printProduct(products[i]);
             }
         }
+
+        public static List<Product> init()
+        {
+            List<Product> productList = new List<Product>();
+            productList.Add(new Product { Name = "CPU", Price = 750, Quality = 10, CategoryId = 1 });
+            productList.Add(new Product { Name = "RAM", Price = 50, Quality = 2, CategoryId = 2 });
+            productList.Add(new Product { Name = "RAM", Price = 50, Quality = 2, CategoryId = 2 });
+            productList.Add(new Product { Name = "Main", Price = 400, Quality = 3, CategoryId = 1 });
+            productList.Add(new Product { Name = "Keyboard", Price = 30, Quality = 8, CategoryId = 4 });
+            productList.Add(new Product { Name = "Mouse", Price = 25, Quality = 50, CategoryId = 4 });
+            productList.Add(new Product { Name = "VGA", Price = 60, Quality = 35, CategoryId = 3 });
+            productList.Add(new Product { Name = "Monitor", Price = 120, Quality = 28, CategoryId = 2 });
+            productList.Add(new Product { Name = "Case", Price = 120, Quality = 28, CategoryId = 4 });
+
+            return productList;
+        }
     }
 }
