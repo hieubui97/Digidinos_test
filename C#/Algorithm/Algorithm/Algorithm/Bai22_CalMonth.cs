@@ -24,26 +24,6 @@ namespace Algorithm.Algorithm
             return month;
         }
 
-        //public static int calMonthRecursion(double money, float rate)
-        //{
-        //    if (money <= 0 || money == 1 || rate <= 0)
-        //        return 0;
-
-        //    double target = 2 * money;
-        //    return recursion(money, rate, 1, target);
-        //}
-
-        //private static int recursion(double money, float rate, int month, double target)
-        //{
-        //    double x = money + money * rate / 100;
-        //    if ( x >= target)
-        //    {
-        //        return month;
-        //    }
-
-        //    return recursion(x, rate, month + 1, target);
-        //}
-
         public static int calMonthRecursion(double money, float rate)
         {
             if (money <= 0 || money == 1 || rate <= 0)
