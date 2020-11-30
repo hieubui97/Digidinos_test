@@ -11,8 +11,13 @@ namespace Algorithm.Algorithm
     {
         public static string getNameCategory(int id, List<Category> categories)
         {
-            var result = categories.FirstOrDefault(x => x.Id == id).Name;
-            return result;
+            string name = "";
+            var result = categories.FirstOrDefault(x => x.Id == id);
+            if(result != null)
+            {
+                name = result.Name;
+            }
+            return name;
         }
 
         public static List<Product> sortByCategoryName(List<Product> products, List<Category> categories)

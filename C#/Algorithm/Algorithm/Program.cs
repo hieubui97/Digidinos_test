@@ -44,15 +44,15 @@ namespace Algorithm
 
             //Bai 21
             double salary = Bai21_CalSalary.calSalaryRecursion(2000, 5);
-            //Console.WriteLine("Salary: " + salary);
+            Console.WriteLine("Salary: " + salary);
 
             //Bai 22
             //int month = Bai22_CalMonth.calMonth(2000, 5);
             int month = Bai22_CalMonth.calMonthRecursion(2000, 5);
-            //Console.WriteLine("Month: " + month);
+            Console.WriteLine("Month: " + month);
 
             //Bai 23
-            Bai23_printMenus.printMenus(menus);
+            //Bai23_printMenus.printMenus(menus);
 
             //Bai 24
             Bai24_Queue<int> queue = new Bai24_Queue<int>();

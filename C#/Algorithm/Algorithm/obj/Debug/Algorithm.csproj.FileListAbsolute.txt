@@ -12,3 +12,10 @@ C:\Users\Hieu Bui\source\repos\Digidinos_test\C#\Algorithm\Algorithm\obj\Debug\A
 C:\Users\Hieu Bui\source\repos\Digidinos_test\C#\Algorithm\Algorithm\obj\Debug\Algorithm.csproj.CoreCompileInputs.cache
 C:\Users\Hieu Bui\source\repos\Digidinos_test\C#\Algorithm\Algorithm\obj\Debug\Algorithm.exe
 C:\Users\Hieu Bui\source\repos\Digidinos_test\C#\Algorithm\Algorithm\obj\Debug\Algorithm.pdb
+C:\Users\Digi DInos 29\Desktop\Digidinos_test\C#\Algorithm\Algorithm\bin\Debug\Algorithm.exe.config
+C:\Users\Digi DInos 29\Desktop\Digidinos_test\C#\Algorithm\Algorithm\bin\Debug\Algorithm.exe
+C:\Users\Digi DInos 29\Desktop\Digidinos_test\C#\Algorithm\Algorithm\bin\Debug\Algorithm.pdb
+C:\Users\Digi DInos 29\Desktop\Digidinos_test\C#\Algorithm\Algorithm\obj\Debug\Algorithm.csprojAssemblyReference.cache
+C:\Users\Digi DInos 29\Desktop\Digidinos_test\C#\Algorithm\Algorithm\obj\Debug\Algorithm.csproj.CoreCompileInputs.cache
+C:\Users\Digi DInos 29\Desktop\Digidinos_test\C#\Algorithm\Algorithm\obj\Debug\Algorithm.exe
+C:\Users\Digi DInos 29\Desktop\Digidinos_test\C#\Algorithm\Algorithm\obj\Debug\Algorithm.pdb

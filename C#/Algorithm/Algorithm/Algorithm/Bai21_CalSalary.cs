@@ -24,7 +24,7 @@ namespace Algorithm.Algorithm
             if (n < 1)
                 return salary;
 
-            return calSalaryRecursion(salary += salary * 0.1, n - 1);
+            return calSalaryRecursion(salary, n - 1) + calSalaryRecursion(salary, n - 1)*0.1;
         }
     }
 }
